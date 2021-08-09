@@ -124,13 +124,17 @@ class HBNBCommand(cmd.Cmd):
             return
         params = parameters[1:]
         new_obj = eval("{}()".format(parameters[0]))
+        par_add = ['city_id', 'user_id']
         for par in params:
             new_par = par.split("=")
             new_par[1] = new_par[1].replace("_", " ")
             new_par[1] = new_par[1].replace('"', "")
             # Checking whether a string is numeric or float.
             if new_par[1].isnumeric():
-                new_par[1] = int(new_par[1])
+                if new_par[0] in par_add:
+                    pass
+                else:
+                    new_par[1] = int(new_par[1])
             elif "." in new_par[1]:
                 new_par[1] = float(new_par[1])
             setattr(new_obj, new_par[0], new_par[1])

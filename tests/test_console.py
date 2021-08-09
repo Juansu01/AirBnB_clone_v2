@@ -19,7 +19,7 @@ class TestConsole(unittest.TestCase):
         """ This deletes the class we created """
         del self.consola1
 
-    def test_create(self):
+    def test_do_create(self):
         """ Testing create method """
         with patch('sys.stdout', new=StringIO()) as mock:
             self.consola1.onecmd("create")

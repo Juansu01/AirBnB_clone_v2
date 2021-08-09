@@ -124,6 +124,7 @@ class HBNBCommand(cmd.Cmd):
             return
         params = parameters[1:]
         new_obj = eval("{}()".format(parameters[0]))
+        storage.save()
         par_add = ['city_id', 'user_id']
         att_list = ['number_bathrooms', 'longitude', 'city_id', 'user_id', 'latitude',
         'price_by_night', 'name', 'id', 'max_guest', 'number_rooms', 'updated_at', 'created_at', 'number_rooms']
@@ -140,7 +141,6 @@ class HBNBCommand(cmd.Cmd):
             elif "." in new_par[1]:
                 new_par[1] = float(new_par[1])
             setattr(new_obj, new_par[0], new_par[1])
-        storage.save()
         print(new_obj.id)
         storage.save()
 

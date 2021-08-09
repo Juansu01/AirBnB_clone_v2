@@ -129,8 +129,6 @@ class HBNBCommand(cmd.Cmd):
         'price_by_night', 'name', 'id', 'max_guest', 'number_rooms', 'updated_at', 'created_at', 'number_rooms']
         for par in params:
             new_par = par.split("=")
-            if new_par[0] not in att_list:
-                continue
             new_par[1] = new_par[1].replace("_", " ")
             new_par[1] = new_par[1].replace('"', "")
             # Checking whether a string is numeric or float.

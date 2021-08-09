@@ -7,7 +7,7 @@ from console import HBNBCommand
 from unittest.mock import patch
 
 
-class Test_console(unittest.TestCase):
+class TestConsole(unittest.TestCase):
     """This class tests our console"""
     @classmethod
     def setUpClass(self):

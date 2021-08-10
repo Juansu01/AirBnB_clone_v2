@@ -22,6 +22,5 @@ class TestConsole(unittest.TestCase):
     def test_do_create(self):
         """ Testing create method """
         with patch('sys.stdout', new=StringIO()) as mock:
-            self.consola1.onecmd("create")
-            self.assertEqual(
-                "** class name missing **\n", mock.getvalue())
+            self.consola1.onecmd("create State")
+            self.assertTrue(len(mock.getvalue()) >= 1)

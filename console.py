@@ -126,8 +126,6 @@ class HBNBCommand(cmd.Cmd):
         new_obj = eval("{}()".format(parameters[0]))
         storage.save()
         par_add = ['city_id', 'user_id']
-        att_list = ['number_bathrooms', 'longitude', 'city_id', 'user_id', 'latitude',
-        'price_by_night', 'name', 'id', 'max_guest', 'number_rooms', 'updated_at', 'created_at', 'number_rooms']
         for par in params:
             new_par = par.split("=")
             new_par[1] = new_par[1].replace("_", " ")

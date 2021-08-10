@@ -10,6 +10,7 @@ from models.state import State
 from models.city import City
 from models.amenity import Amenity
 from models.review import Review
+import shlex
 
 
 class HBNBCommand(cmd.Cmd):
@@ -136,7 +137,7 @@ class HBNBCommand(cmd.Cmd):
                     pass
                 else:
                     new_par[1] = int(new_par[1])
-            elif "." in new_par[1]:
+            elif new_par[1][0] != '\"' and '.' in new_par[1]:
                 new_par[1] = float(new_par[1])
             setattr(new_obj, new_par[0], new_par[1])
         print(new_obj.id)

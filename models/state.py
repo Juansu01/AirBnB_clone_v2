@@ -1,11 +1,13 @@
 #!/usr/bin/python3
 """ State Module for HBNB project """
-from AirBnB_clone_v2.models.city import City
+from models.city import City
 from models.base_model import BaseModel, Base
 from sqlalchemy.orm import relationship
 from sqlalchemy import Column, String, ForeignKey
 from os import getenv
-from models.engine.file_storage import all
+import models
+
+
 
 
 class State(BaseModel, Base):
@@ -19,7 +21,7 @@ class State(BaseModel, Base):
         def cities(self):
             """lis of cities with satate_id equal to current id"""
             list_city = []
-            dic_obj = all(City)
+            dic_obj = models.storage.all(City)
             for city in list(dic_obj).values():
                 if city.state_id == self.id:
                     list_city.append(city)

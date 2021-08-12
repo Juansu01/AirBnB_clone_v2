@@ -124,7 +124,7 @@ class HBNBCommand(cmd.Cmd):
             return
         params = parameters[1:]
         new_obj = eval("{}()".format(parameters[0]))
-        storage.save()
+
 
         for par in params:
             new_par = par.split("=")
@@ -138,7 +138,7 @@ class HBNBCommand(cmd.Cmd):
                 new_par[1] = float(new_par[1])
             setattr(new_obj, new_par[0], new_par[1])
         print(new_obj.id)
-        storage.save()
+        new_obj.save()
 
     def help_create(self):
         """ Help information for the create method """

@@ -5,6 +5,7 @@ from io import StringIO
 import unittest
 from console import HBNBCommand
 from unittest.mock import patch
+import pep8
 
 
 class TestConsole(unittest.TestCase):
@@ -28,3 +29,9 @@ class TestConsole(unittest.TestCase):
         with patch('sys.stdout', new=StringIO()) as mock2:
             self.consola1.onecmd("show State " + mock.getvalue())
             self.assertTrue("numb" in mock2.getvalue())
+     def test_pep8(self):
+        """Test Pep8 styling."""
+        style = pep8.StyleGuide(quiet=True)
+        p = style.check_files(["console.py"])
+        self.assertEqual(p.total_errors, 0, "fix Pep8")
+

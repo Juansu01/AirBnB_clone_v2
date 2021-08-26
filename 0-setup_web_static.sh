@@ -17,7 +17,7 @@ my_test_html="\
   </body>
 </html>"
 echo "$my_test_html" > /data/web_static/releases/test/index.html
-ln -sfn /data/web_static/releases/test/ /data/web_static/current
+ln -sf /data/web_static/releases/test/ /data/web_static/current
 chown -R ubuntu /data/
 sed -i '37i\location /hbnb_static/ {' /etc/nginx/sites-enabled/default
 sed -i '38i\alias /data/web_static/current/;' /etc/nginx/sites-enabled/default

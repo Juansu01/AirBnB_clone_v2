@@ -22,10 +22,10 @@ def do_pack():
     local("tar -cavf versions/{} web_static".format(file_name))
 
 
-def do_deploy(archive_path):
-    """ This function deploys the archive made in do pack"""
-    if not archive_path:
-        return False
-    name_of_file = archive_path[9:]
-    print(name_of_file)
-    put(archive_path, "/tmp/{}".format(name_of_file))
+#def do_deploy(archive_path):
+#    """ This function deploys the archive made in do pack"""
+#    if not archive_path:
+#        return False
+#    name_of_file = archive_path[9:]
+#    print(name_of_file)
+#    put(archive_path, "/tmp/{}".format(name_of_file))

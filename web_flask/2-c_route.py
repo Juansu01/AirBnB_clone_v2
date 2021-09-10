@@ -24,16 +24,5 @@ def c_is_fun(text):
     return my_string
 
 
-@app.route('/python/<text>', strict_slashes=False)
-def python_is_cool(text):
-    """This function retunrs a string saying HBNB"""
-    if text:
-        replace = text.replace("_", " ")
-        my_string = "Python {}".format(replace)
-        return my_string
-    else:
-        return "Python is cool"
-
-
 if __name__ == '__main__':
     app.run()

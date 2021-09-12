@@ -16,8 +16,6 @@ from sqlalchemy.orm import query
 from models.base_model import Base, BaseModel
 
 
-
-
 class DBStorage:
     """DBStorage class"""
 
@@ -76,7 +74,9 @@ class DBStorage:
         """Created all tables in the database"""
         Base.metadata.create_all(self.__engine)
 
-        Session_factory = sessionmaker(bind=self.__engine, expire_on_commit=False)
-        Session = scoped_session(Session_factory)
+        Sess = sessionmaker(bind=self.__engine, expire_on_commit=False)
+        Session = scoped_session(Sess)
         self.__session = Session()
 
+    def close(self):
+        self.__session.close()

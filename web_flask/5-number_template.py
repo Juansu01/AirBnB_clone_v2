@@ -1,8 +1,7 @@
 #!/usr/bin/python3
 """This module sets up a flask server"""
 from flask import Flask, render_template
-app = Flask('')
-
+app = Flask(__name__, template_folder='templates')
 
 @app.route('/', strict_slashes=False)
 def index():
@@ -39,9 +38,9 @@ def is_number(n):
 
 
 @app.route('/number_template/<int:n>', strict_slashes=False)
-def is_number_template(n):
-    """This function retunrs a number"""
-    return render_template("5-number.html", number=n)
+def show_me_the_int(n):
+    """ Returns a page with integer if n is type int """
+    return render_template('5-number.html', n=n)
 
 
 if __name__ == '__main__':
